@@ -21,10 +21,24 @@
 
     <div class="row mt-4 mb-4">
         <?php $dimensi = $this->db->get('dimensi')->result_array(); ?>
+        <div class="col-lg-12 box">
+            <div class="card shadow">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 flex-row align-items-center justify-content-between bg-midnight-blue text-white text-capitalize text-center">
+                    <h6 class="m-0 font-weight-bold">Grafik : Indeks Pembangunan Inklusif</h6>
+                </div>
+                <!-- Card Body -->
+                <div class="table-responsive">
+                    <div class="card-body chart">
+                        <canvas id="ipi-chart" style="width: 100%; height: 30rem;"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="col-lg-12 box2 mt-4">
             <div class="card shadow box2">
                 <!-- Card Header - Dropdown -->
-                <div class="card-header py-3 flex-row bg-midnight-blue text-capitalize  ">
+                <div class="card-header py-3 flex-row bg-midnight-blue text-white text-capitalize  ">
                     <h6 class="m-0 font-weight-bold text-center">Tabel : Indeks Pembangunan Inklusif</h6>
                 </div>
                 <!-- Card Body -->
@@ -32,9 +46,9 @@
                     <div class="table-responsive header-table-root">
                         <table class="table table-bordered table-striped text-center tClip">
                             <thead class=" bg-midnight-blue">
-                                <tr style="" class="header-table">
+                                <tr style=" color: #FFFFFF" class="header-table">
                                 </tr>
-                                <tr style="" class="tahun-ipi">
+                                <tr style=" color: #FFFFFF" class="tahun-ipi">
                                 </tr>
                             </thead>
                             <tbody class="iniDataIpi">
