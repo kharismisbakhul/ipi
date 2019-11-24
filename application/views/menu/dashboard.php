@@ -5,7 +5,7 @@
     <div class="col-lg-12 col-md-12 col-sm-12 box2">
       <div class="card shadow h-100">
         <div class="card-header bg-midnight-blue">
-          <div class="text-sm font-weight-bold text-capitalize mb-1 text-center">
+          <div class=" text-white text-sm font-weight-bold text-capitalize mb-1 text-center">
             Tabel : Indeks Pembangunan Inklusif
           </div>
         </div>
