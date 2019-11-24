@@ -31,9 +31,101 @@ class Admin extends CI_Controller
     {
         $data = $this->initData();
         $data['title'] = 'Dashboard';
+        $data['title2'] = 'Indeks Pembangunan Inklusif';
         $this->loadTemplate($data);
         $this->load->view('menu/dashboard', $data);
         $this->load->view('templates/footer');
+    }
+
+    //Manajemen User
+    public function manajemenUser()
+    {
+        $data = $this->initData();
+        $this->db->where('username !=', $this->session->userdata('username'));
+        $this->db->select('user.id, menu, username, status_user');
+        $this->db->from('user');
+        $this->db->join('status_user', 'user.status_user = status_user.id');
+        $data['list_user'] = $this->db->get()->result_array();
+        $data['title'] = 'Manajemen User';
+        $this->loadTemplate($data);
+        $this->load->view('menu/manajemen_user', $data);
+        $this->load->view('templates/footer');
+    }
+
+    //Add User
+    public function tambahUser()
+    {
+        $this->form_validation->set_rules('usernameadd', 'Username', 'required|trim|is_unique[user.username]', [
+            'is_unique' => 'Username sudah terdaftar!'
+        ]);
+        $this->form_validation->set_rules('passwordadd', 'Password', 'required|trim|matches[password2]', [
+            'matches' => 'Password tidak sesuai!'
+        ]);
+        $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[passwordadd]');
+        if ($this->form_validation->run() == false) {
+            $data = $this->initData();
+            $data['status_user'] = $this->db->get('status_user')->result_array();
+            $data['title'] = 'Manajemen User';
+            $this->loadTemplate($data);
+            $this->load->view('menu/add_user', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $username = $this->input->post('usernameadd');
+            $password = $this->input->post('passwordadd');
+            $status_user = $this->input->post('privileges');
+            $data = array(
+                'username' => htmlspecialchars($username),
+                'password' => password_hash($password, PASSWORD_DEFAULT),
+                'status_user' => $status_user
+            );
+            $this->db->insert('user', $data);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Akun baru berhasil terdaftar</div>');
+            redirect('admin/manajemenUser');
+        }
+    }
+    // Edit User
+    public function editUser($id)
+    {
+        $this->form_validation->set_rules('usernameadd', 'Username', 'required|trim');
+        $this->form_validation->set_rules('passwordadd', 'Password', 'required|trim|matches[password2]', [
+            'matches' => 'Password dont match!'
+        ]);
+        $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[passwordadd]');
+        if ($this->form_validation->run() == false) {
+            $data = $this->initData();
+            $data['title'] = 'Manajemen User';
+            $data['detailUser'] = $this->db->get_where('user', ['id' => $id])->row_array();
+            $data['status_user'] = $this->db->get('status_user')->result_array();
+            $this->loadTemplate($data);
+            $data['id_temp'] = $id;
+            $this->load->view('menu/edit_user', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $username = $this->input->post('usernameadd');
+            $password = $this->input->post('passwordadd');
+            $status_user = $this->input->post('privileges');
+            $data = array(
+                'username' => htmlspecialchars($username),
+                'password' => password_hash($password, PASSWORD_DEFAULT),
+                'status_user' => $status_user
+            );
+
+            $this->db->set($data);
+            $this->db->where('id', $id);
+            $this->db->update('user');
+
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Informasi akun berhasil diperbaharui</div>');
+            redirect('admin/manajemenUser');
+        }
+    }
+
+    //Delete User
+    public function deleteUser($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('user');
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Akun berhasil dihapus</div>');
+        redirect('admin/manajemenUser');
     }
 
     public function changePassword()

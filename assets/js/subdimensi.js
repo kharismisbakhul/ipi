@@ -116,6 +116,122 @@ $(document).ready(function () {
 				});
 			}
 
+			const canvas = document.querySelector("#chart-subdimensi");
+			const ctx = canvas.getContext("2d");
+			var x = new Chart(ctx, {
+				type: "bar",
+				data: {
+					labels: tahun,
+					datasets: setDataDimensi
+				},
+				options: {
+					responsive: false,
+					maintainAspectRatio: false,
+
+					layout: {
+						padding: {
+							left: 0,
+							right: 0,
+							top: 10,
+							bottom: 0
+						}
+					},
+					scales: {
+						xAxes: [{
+							time: {
+								unit: "year"
+							},
+							gridLines: {
+								display: true,
+								drawBorder: false
+							},
+							ticks: {
+								min: 2,
+								max: 0,
+								maxTicksLimit: 7
+							},
+							maxBarThickness: 70
+						}],
+						yAxes: [{
+							ticks: {
+								min: 0,
+								max: 10,
+								maxTicksLimit: 20,
+								padding: 30
+								// Include a dollar sign in the ticks
+							},
+							gridLines: {
+								color: "rgb(220, 221, 225)",
+								zeroLineColor: "rgb(234, 236, 244)",
+								drawBorder: false,
+								borderDash: [5, 5],
+								zeroLineBorderDash: [2]
+							}
+						}]
+					},
+					annotation: {
+						annotations: [{
+								type: "box",
+								yScaleID: "y-axis-0",
+								yMin: 0,
+								yMax: 4,
+								borderColor: "rgba(255, 51, 51, 0.1",
+								borderWidth: 2,
+								backgroundColor: "rgba(255, 51, 51, 0.1)"
+							},
+							{
+								type: "box",
+								yScaleID: "y-axis-0",
+								yMin: 4,
+								yMax: 7,
+								borderColor: "rgba(255, 255, 0, 0.1)",
+								borderWidth: 1,
+								backgroundColor: "rgba(255, 255, 0, 0.1)"
+							},
+							{
+								type: "box",
+								yScaleID: "y-axis-0",
+								yMin: 7,
+								yMax: 10,
+								borderColor: "rgba(0, 204, 0, 0.1)",
+								borderWidth: 1,
+								backgroundColor: "rgba(0, 204, 0, 0.1)"
+							}
+						]
+					},
+					legend: {
+						position: "bottom",
+
+						display: true
+					},
+					tooltips: {
+						// enabled: false,
+						titleMarginBottom: 10,
+						titleFontColor: "#6e707e",
+						titleFontSize: 14,
+						backgroundColor: "rgb(255,255,255)",
+						bodyFontColor: "#858796",
+						borderColor: "#dddfeb",
+						borderWidth: 1,
+						xPadding: 1,
+						yPadding: 6,
+						displayColors: false,
+						caretPadding: 10,
+						footerFontColor: 'red',
+						callbacks: {
+							afterFooter: function (tooltipItem, data) {
+
+								if (tooltipItem[0]['datasetIndex'] != 0) {
+									return "Data Riil: " + dataTampungSub2[tooltipItem[0]['datasetIndex']][tooltipItem[0]['label']]
+
+								}
+
+							}
+						}
+
+					}
+				}
+			});
 		},
 		error: function (data) {
 
