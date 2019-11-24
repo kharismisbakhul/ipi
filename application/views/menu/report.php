@@ -63,7 +63,37 @@
         </div>
     </div>
 
-
+    <div class="row">
+        <div class="col-xl-5 col-md-5 col-sm-5">
+            <div class="card shadow h-auto" style="width: 70%">
+                <div class="card-header text-white" style="background-color:#3867d6;">
+                    <div class="text-sm font-weight-bold text-center">
+                        Action
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg">
+                            <a href="<?= base_url('inputData'); ?>" class="btn btn-primary btn-icon-split tambah-user pr-5 float-left">
+                                <span class="icon text-white-50 float-left">
+                                    <i class="fas fa-fw fa-plus"></i>
+                                </span>
+                                <span class="text">Tambah Data</span>
+                            </a>
+                        </div>
+                        <div class="mt-3 col-lg export-excel">
+                            <a href="<?= base_url('report/export/asli?star_date=') . $this->input->get('star_date'); ?>&end_date=<?= $this->input->get('end_date');   ?>" class="btn btn-success btn-icon-split export-to-excel">
+                                <span class="icon text-white-50">
+                                    <i class="fas fa-fw fa-file-excel"></i>
+                                </span>
+                                <span class="text">Download Excel File</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="row mt-4">
         <div class="col-xl-12 col-md-12 col-sm-12">
             <div class="card shadow h-100">

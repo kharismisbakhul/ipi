@@ -21,6 +21,12 @@ $(document).ready(function () {
 		beforeSend: function (data) {
 			$("#ipi-chart").hide();
 			$(".header-table").hide();
+			$(".chart").append(
+				`<img src="` + segments[0] + `/IpiApps/assets/img/loader.gif" width="10%" alt="no data" class="rounded mx-auto d-block loader">`
+			);
+			$(".header-table-root").append(
+				`<img src="` + segments[0] + `/IpiApps/assets/img/loader.gif" width="10%" alt="no data" class="rounded mx-auto d-block loader">`
+			);
 		},
 		success: function (data) {
 			$(".loader").remove();

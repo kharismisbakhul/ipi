@@ -34,6 +34,12 @@ $(document).ready(function () {
 			$("#chart-dimensi").hide();
 			$(".header-table").hide();
 			$(".rescale-chart").hide();
+			$(".chart").append(
+				`<img src="` + segments[0] + `/IpiApps/assets/img/loader.gif" width="10%" alt="no data" class="rounded mx-auto d-block loader">`
+			);
+			$(".header-table-root").append(
+				`<img src="` + segments[0] + `/IpiApps/assets/img/loader.gif" width="10%" alt="no data" class="rounded mx-auto d-block loader">`
+			);
 		},
 		success: function (data) {
 			// console.log(data);

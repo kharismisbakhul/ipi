@@ -30,9 +30,15 @@ $(document).ready(function () {
 		startTime: performance.now(),
 		beforeSend: function (data) {
 			$("#ipi-chart").hide();
+			$(".chart").append(
+				`<img src="` + segments[0] + `/IpiApps/assets/img/loader.gif" width="10%" alt="no data" class="rounded mx-auto d-block loader">`
+			);
 			$(".header-table").hide();
 			$(".tahun-ipi").hide();
 			$(".filter-tahun").hide();
+			$(".header-table-root").append(
+				`<img src="` + segments[0] + `/IpiApps/assets/img/loader.gif" width="10%" alt="no data" class="rounded mx-auto d-block loader">`
+			);
 		},
 		success: function (data) {
 			// console.log(data);

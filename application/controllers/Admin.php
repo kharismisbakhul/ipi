@@ -29,10 +29,46 @@ class Admin extends CI_Controller
 
     public function index()
     {
+        $data = $this->initData();
         $data['title'] = 'Dashboard';
         $this->loadTemplate($data);
         $this->load->view('menu/dashboard', $data);
         $this->load->view('templates/footer');
+    }
+
+    public function changePassword()
+    {
+
+        if (!$this->session->userdata('username')) {
+            $this->session->set_flashdata('message', '<div class="alert alert-warning" role="alert">ojo masuk lewat kene.</div>');
+            redirect('auth');
+        }
+
+        $this->form_validation->set_rules('passSebelum', 'Password', 'trim|required|min_length[3]');
+        $this->form_validation->set_rules('password1', 'Password', 'trim|required|min_length[3]|matches[password2]');
+        $this->form_validation->set_rules('password2', 'Password', 'trim|required|min_length[3]|matches[password1]');
+
+        $passSebelum = $this->input->post('passSebelum');
+        $data = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+
+        if ($this->form_validation->run() == false) {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">data inputan tidak lengkap!</div>');
+            redirect('admin');
+        } else {
+            if (!password_verify($passSebelum, $data['password'])) {
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password tidak sesuai!</div>');
+                redirect('admin');
+            } else {
+                $password = password_hash($this->input->post('password1'), PASSWORD_DEFAULT);
+                $username = $this->session->userdata('username');
+                $this->db->set('password', $password);
+                $this->db->where('username', $username);
+                $this->db->update('user');
+
+                $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Password berhasil diperbaharui!</div>');
+                redirect('admin');
+            }
+        }
     }
 
     public function ipi()

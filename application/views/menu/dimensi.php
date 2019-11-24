@@ -16,7 +16,7 @@
         <div class="col-xl-12 col-md-12 col-sm-12 mb-4 box2">
             <div class="card shadow h-100">
                 <div class="card-header <?= $background ?>">
-                    <div class="text-sm font-weight-bold text-capitalize mb-1 text-center">
+                    <div class="text-white text-sm font-weight-bold text-capitalize mb-1 text-center">
                         Tabel : <?= $title;  ?>
                     </div>
                 </div>
