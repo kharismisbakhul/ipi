@@ -31,7 +31,7 @@ class Admin extends CI_Controller
     {
         $data['title'] = 'Dashboard';
         $this->loadTemplate($data);
-        $this->load->view('menu/dashboard_admin', $data);
+        $this->load->view('menu/dashboard', $data);
         $this->load->view('templates/footer');
     }
 
@@ -131,6 +131,15 @@ class Admin extends CI_Controller
         $data['title'] = $nama_sub_dimensi[$kode_sd - 1];
         $this->loadTemplate($data);
         $this->load->view('menu/subdimensi', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function Report()
+    {
+        $data = $this->initData();
+        $data['title'] = 'Report';
+        $this->loadTemplate($data);
+        $this->load->view('menu/report', $data);
         $this->load->view('templates/footer');
     }
 
