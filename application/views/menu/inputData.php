@@ -52,16 +52,6 @@
                                 <select class="form-control indikator" name="indikator" id="indikator">
                                 </select>
                             </div>
-                            <?php if ($this->session->userdata("status_user") == 0) { ?>
-                                <button type="button" class="btn btn-primary tambah-indikator btn-icon-split" data-toggle="modal" data-target="#ModalTambahIndikator">
-                                    <span class="icon text-white-50">
-                                        <i class="fas fa-fw fa-plus"></i>
-                                    </span>
-                                    <span class="text">Indikator</span>
-                                </button>
-                            <?php
-                            }; ?>
-
                         </div>
                         <div class="form-group row">
                             <label for="tahun" class="col-sm-2 col-form-label">Tahun</label>
@@ -116,12 +106,6 @@
                     </div>
                     <!-- Card Body -->
                     <div class="card-body">
-                        <button type="button" class="btn btn-warning btn-icon-split hapus-indikator pr-1" data-toggle="modal" data-target="#ModalHapusIndikator">
-                            <span class="icon text-white-50">
-                                <i class="fas fa-fw fa-trash"></i>
-                            </span>
-                            <span class="text">Hapus Indikator</span>
-                        </button>
                         <button type="button" class="btn btn-warning btn-icon-split hapus-data-tahun mt-2 pr-4 " data-toggle="modal" data-target="#ModalHapusDataTahun">
                             <span class="icon text-white-50">
                                 <i class="fas fa-fw fa-trash"></i>
