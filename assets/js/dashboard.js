@@ -126,32 +126,32 @@ $(document).ready(function () {
 					},
 					annotation: {
 						annotations: [{
-								type: "box",
-								yScaleID: "y-axis-0",
-								yMin: 0,
-								yMax: 4,
-								borderColor: "rgba(255, 51, 51, 0.1",
-								borderWidth: 2,
-								backgroundColor: "rgba(255, 51, 51, 0.1)"
-							},
-							{
-								type: "box",
-								yScaleID: "y-axis-0",
-								yMin: 4,
-								yMax: 7,
-								borderColor: "rgba(255, 255, 0, 0.1)",
-								borderWidth: 1,
-								backgroundColor: "rgba(255, 255, 0, 0.1)"
-							},
-							{
-								type: "box",
-								yScaleID: "y-axis-0",
-								yMin: 7,
-								yMax: 10,
-								borderColor: "rgba(0, 204, 0, 0.1)",
-								borderWidth: 1,
-								backgroundColor: "rgba(0, 204, 0, 0.1)"
-							}
+							type: "box",
+							yScaleID: "y-axis-0",
+							yMin: 0,
+							yMax: 4,
+							borderColor: "rgba(255, 51, 51, 0.1",
+							borderWidth: 2,
+							backgroundColor: "rgba(255, 51, 51, 0.1)"
+						},
+						{
+							type: "box",
+							yScaleID: "y-axis-0",
+							yMin: 4,
+							yMax: 7,
+							borderColor: "rgba(255, 255, 0, 0.1)",
+							borderWidth: 1,
+							backgroundColor: "rgba(255, 255, 0, 0.1)"
+						},
+						{
+							type: "box",
+							yScaleID: "y-axis-0",
+							yMin: 7,
+							yMax: 10,
+							borderColor: "rgba(0, 204, 0, 0.1)",
+							borderWidth: 1,
+							backgroundColor: "rgba(0, 204, 0, 0.1)"
+						}
 						]
 					},
 					legend: {

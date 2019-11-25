@@ -1,3 +1,8 @@
+/* General */
+body {
+	font-family: 'Roboto', sans-serif;
+}
+
 .bg-orange2 {
 	background-color: #cd6133;
 }
