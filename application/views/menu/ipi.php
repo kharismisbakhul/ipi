@@ -32,6 +32,26 @@
                     <div class="card-body chart">
                         <canvas id="ipi-chart" style="width: 100%; height: 30rem;"></canvas>
                     </div>
+                    <div class="col-md-12 mr-2">
+                        <div class="text-gray-800 mt-0">
+                            <div class="legenda card no-border" style="width: auto;">
+                                <div class="card-body">
+                                    <?php foreach ($dimensi as $d) : ?>
+                                    <div class="row">
+                                        <div class="col-xs-2">
+                                            <a href="#" id="dimensi<?= $d['kode_d']; ?>" role="button" class="btn square-legend bg-cream"></a>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <small>
+                                                <a href="<?= base_url('admin/dimensi?d=') . $d['kode_d']; ?>" class="text-sm text-decoration-none text-secondary ml-4"><?= $d['nama_dimensi'] ?></a>
+                                            </small>
+                                        </div>
+                                    </div>
+                                    <?php endforeach; ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -55,7 +75,6 @@
                             </tbody>
                         </table>
                     </div>
-
                 </div>
             </div>
         </div>
