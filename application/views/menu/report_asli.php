@@ -64,6 +64,43 @@
     </div>
 
     <div class="row">
+        <div class="col-xl-4 col-md-4 col-sm-4 mb-2">
+            <div class="card shadow h-100">
+                <div class="card-header text-white" style="background-color:#3867d6;">
+                    <div class="text-sm font-weight-bold text-center">
+                        Pilih Rentan Waktu
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <form action="<?= base_url('admin/report/asli') ?>" method="get">
+                            <div class="row ml-1 mr-1">
+                                <div class="col-lg-12 mb-2 text-justify">
+                                    Untuk menampilkan data pada
+                                    tabel dan chart, harap untuk
+                                    mengisi rentan tahun di bawah
+                                </div>
+                                <div class="col-lg-12 mb-2">
+                                    <small>dari tahun</small>
+                                    <select class="custom-select" id="start-date" name="star_date">
+
+                                    </select>
+                                </div>
+                                <div class="col-lg-12 mb-2">
+                                    <small>sampai tahun</small>
+                                    <select class="custom-select" id="end-date" name="end_date">
+
+                                    </select>
+                                </div>
+                                <div class="col-lg-12 mt-2">
+                                    <button type="submit" class="btn btn-primary submit" style="width: 100%" id="submit">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="col-xl-5 col-md-5 col-sm-5">
             <div class="card shadow h-auto" style="width: 70%">
                 <div class="card-header text-white" style="background-color:#3867d6;">

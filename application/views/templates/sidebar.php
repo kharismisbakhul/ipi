@@ -170,7 +170,7 @@
                                         <div class="bg-white py-2 collapse-inner rounded">
                                             <span>
                                                 <a class="collapse-item" href="<?= base_url('admin/report/asli') ?>">Data Indikator Sosial<br>Ekonomi</a>
-
+                                                <a class="collapse-item" href="<?= base_url('admin/report/rescale') ?>">Data Indeks Sosial<br>Ekonomi</a>
                                             </span>
                                         </div>
                                         <!-- -- Updated -->

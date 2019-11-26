@@ -22,7 +22,7 @@
                 <div class="card-body dash">
                     <div class="row no-gutters align-items-center">
                         <div class="col ml-auto ">
-                            <div class="h5 mb-0 font-weight-normal">Hai <span id="user_name" class="font-weight-bold text-capitalize"><?= $username ?></span>, Selamat datang di IPI - Apps</div>
+                            <div class="h5 mb-0 font-weight-normal text-white">Hai <span id="user_name" class="text-white font-weight-bold text-capitalize"><?= $username ?></span>, Selamat datang di IPI - Apps</div>
                             <div class="text-s font-weight-normal text-gray-800 mt-2"></div>
                             <small>Untuk mendapatkan pengalaman yang lebih dalam menggunakan Ipi Apps <br>diharapakan menggunakan browser mozilla firefox, google chrome atau opera</small>
                         </div>
@@ -45,6 +45,31 @@
                 </div>
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
+                        <div class="col-md-12 mr-2">
+                            <div class="text-gray-800 mt-1 mb-2">
+                                <form action="<?= base_url('admin/') ?>" method="get">
+                                    <div class="form-row filter-tahun">
+                                        <div class="form-group col-md-2">
+                                            <label for="dariTahun" class="text-xs">Dari Tahun</label>
+
+                                            <select class="custom-select" name="star_date" id="start-date">
+
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label for="sampaiTahun" class="text-xs">Sampai Tahun</label>
+                                            <select class="custom-select" name="end_date" id="end-date">
+
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-2 col-xs-12" style="padding-top: 1.9rem;">
+                                            <label for=""></label>
+                                            <button type="submit" class="btn btn-primary" id="Search-Button">Cari</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                         <div class="chart-bar chart">
                             <canvas id="ipi-chart" style="width: 100%; height: 30rem;"></canvas>
                         </div>

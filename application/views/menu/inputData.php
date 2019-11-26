@@ -52,6 +52,15 @@
                                 <select class="form-control indikator" name="indikator" id="indikator">
                                 </select>
                             </div>
+                            <?php if ($this->session->userdata("status_user") == 0) { ?>
+                                <button type="button" class="btn btn-primary tambah-indikator btn-icon-split" data-toggle="modal" data-target="#ModalTambahIndikator">
+                                    <span class="icon text-white-50">
+                                        <i class="fas fa-fw fa-plus"></i>
+                                    </span>
+                                    <span class="text">Indikator</span>
+                                </button>
+                            <?php
+                            }; ?>
                         </div>
                         <div class="form-group row">
                             <label for="tahun" class="col-sm-2 col-form-label">Tahun</label>
@@ -106,6 +115,12 @@
                     </div>
                     <!-- Card Body -->
                     <div class="card-body">
+                        <button type="button" class="btn btn-warning btn-icon-split hapus-indikator pr-1" data-toggle="modal" data-target="#ModalHapusIndikator">
+                            <span class="icon text-white-50">
+                                <i class="fas fa-fw fa-trash"></i>
+                            </span>
+                            <span class="text">Hapus Indikator</span>
+                        </button>
                         <button type="button" class="btn btn-warning btn-icon-split hapus-data-tahun mt-2 pr-4 " data-toggle="modal" data-target="#ModalHapusDataTahun">
                             <span class="icon text-white-50">
                                 <i class="fas fa-fw fa-trash"></i>
@@ -124,6 +139,110 @@
 
 </div>
 <!-- End of Main Content -->
+
+<!-- Modal Tambah Indikator -->
+<div class="modal fade" id="ModalTambahIndikator" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-blue">
+                <h5 class="modal-title font-weight-bold text-white" id="exampleModalCenterTitle">Variabel Indikator</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form class="formIsian" action="<?= base_url('inputData/tambahIndikator') ?>" method="post">
+                <div class="modal-body">
+                    <div class="form-group row">
+                        <label for="modal-dimensi" class="col-sm-4 col-form-label">Dimensi</label>
+                        <div class="col-sm-8">
+                            <select class="form-control modal-dimensi" name="modal-dimensi" id="modal-dimensi">
+                            </select>
+                            <?= form_error('modal-dimensi', '<small class="text-danger pl-3">', '</small>'); ?>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="modal-subDimensi" class="col-sm-4 col-form-label">Sub Dimensi</label>
+                        <div class="col-sm-8">
+                            <select class="form-control modal-subDimensi" name="modal-subDimensi" id="modal-subDimensi">
+                            </select>
+                            <?= form_error('modal-subDimensi', '<small class="text-danger pl-3">', '</small>'); ?>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="modal-indikator" class="col-sm-4 col-form-label">Indikator</label>
+                        <div class="col-sm-8">
+                            <textarea class="form-control" id="modal-indikator" name="modal-indikator" placeholder="Indikator" style="resize:none; max-height: 100px;" required></textarea>
+                            <?= form_error('modal-indikator', '<small class="text-danger pl-3">', '</small>'); ?>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="modal-status" class="col-sm-4 col-form-label">Status</label>
+                        <div class="col-sm-8">
+                            <select class="form-control modal-status" name="modal-status" id="modal-status">
+                                <option>Putih</option>
+                                <option>Merah</option>
+                            </select>
+                            <?= form_error('modal-status', '<small class="text-danger pl-3">', '</small>'); ?>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                    <button type="submit" class="btn btn-primary tombolTambah">Tambah Indikator</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Akhir Modal Tambah Indikator -->
+
+<!-- Modal Hapus Indikator -->
+<div class="modal fade" id="ModalHapusIndikator" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-blue">
+                <h5 class="modal-title font-weight-bold text-white" id="exampleModalCenterTitle">Variabel Indikator</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form class="formIsian" action="<?= base_url('inputData/hapusIndikator') ?>" method="post">
+                <div class="modal-body">
+                    <div class="form-group row">
+                        <label for="modal-dimensi-hapus" class="col-sm-4 col-form-label">Dimensi</label>
+                        <div class="col-sm-8">
+                            <select class="form-control modal-dimensi-hapus" name="modal-dimensi-hapus" id="modal-dimensi-hapus">
+                            </select>
+                            <?= form_error('modal-dimensi-hapus', '<small class="text-danger pl-3">', '</small>'); ?>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="modal-subDimensi-hapus" class="col-sm-4 col-form-label">Sub Dimensi</label>
+                        <div class="col-sm-8">
+                            <select class="form-control modal-subDimensi-hapus" name="modal-subDimensi-hapus" id="modal-subDimensi-hapus">
+                            </select>
+                            <?= form_error('modal-subDimensi-hapus', '<small class="text-danger pl-3">', '</small>'); ?>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="modal-indikator-hapus" class="col-sm-4 col-form-label">Indikator</label>
+                        <div class="col-sm-8">
+                            <select class="form-control modal-indikator-hapus" name="modal-indikator-hapus" id="modal-indikator-hapus">
+                            </select>
+                            <?= form_error('modal-indikator-hapus', '<small class="text-danger pl-3">', '</small>'); ?>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                    <button type="submit" class="btn btn-danger tombolTambah">Hapus Indikator</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Akhir Modal Hapus Indikator -->
+
 
 <!-- Modal Hapus Tahun -->
 <div class="modal fade" id="ModalHapusDataTahun" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
