@@ -177,7 +177,13 @@
                                     </div>
                                     </li>
 
-
+                                    <!-- Panduan -->
+                                    <li class="nav-item">
+                                        <a class="nav-link pb-0" href="<?= base_url('assets/Panduan_IPI_APPS.pdf'); ?>">
+                                            <i class="fas fa-fw fa-file-alt"></i>
+                                            <span>Panduan</span>
+                                        </a>
+                                    </li>
 
                                     <!-- Divider -->
                                     <hr class="sidebar-divider mt-3 mb-0">
