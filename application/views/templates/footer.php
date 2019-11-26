@@ -1,7 +1,12 @@
 <!-- Footer -->
+<?php $peding = 1.5;
+if ($this->uri->segment(1) == 'inputData') {
+    $peding = 3.5;
+} elseif ($this->uri->segment(2) == 'tambahUser' || $this->uri->segment(2) == 'editUser') {
+    $peding = 6.5;
+} ?>
 
-
-<footer class="sticky-footer bg-white" style="margin-top: rem;margin-bottom: 0;">
+<footer class="sticky-footer bg-white" style="margin-top: <?= $peding ?>rem;margin-bottom: 0;">
     <div class="container my-auto">
         <div class="copyright text-center my-auto">
             <span>Copyright© <?= date('Y') ?> PKEPK FEB UB. All Rights Reserved. </span>
@@ -51,15 +56,15 @@
 
 <!-- Script Chart -->
 <?php if ($this->input->get('d') || $this->uri->segment(1) == "operator") : ?>
-    <script src="<?= base_url('assets/'); ?>js/dimensi.js"></script>
+<script src="<?= base_url('assets/'); ?>js/dimensi.js"></script>
 <?php elseif ($this->input->get('sd')) : ?>
-    <script src="<?= base_url('assets/'); ?>js/subdimensi.js"></script>
+<script src="<?= base_url('assets/'); ?>js/subdimensi.js"></script>
 <?php elseif ($this->uri->segment(2) == 'ipi') : ?>
-    <script src="<?= base_url('assets/'); ?>js/ipi.js"></script>
+<script src="<?= base_url('assets/'); ?>js/ipi.js"></script>
 <?php elseif ($this->uri->segment(3) == 'rescale') : ?>
-    <script src="<?= base_url('assets/'); ?>js/report.js"></script>
+<script src="<?= base_url('assets/'); ?>js/report.js"></script>
 <?php elseif ($this->uri->segment(2) == null && $this->uri->segment(1) == "admin") : ?>
-    <script src="<?= base_url('assets/'); ?>js/dashboard.js"></script>
+<script src="<?= base_url('assets/'); ?>js/dashboard.js"></script>
 <?php endif; ?>
 
 <!-- Filter tahun -->

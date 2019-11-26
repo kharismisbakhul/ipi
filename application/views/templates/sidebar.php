@@ -1,5 +1,5 @@
 <!-- Sidebar -->
-<ul class="navbar-nav bg-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+<ul class="navbar-nav bg-gradient-ipiapps sidebar sidebar-dark accordion" id="accordionSidebar" style="z-index: 1">
 
     <!-- Sidebar - Brand -->
     <?php if ($this->session->userdata("status_user") == 0) { ?>
@@ -9,8 +9,12 @@
             <a class="sidebar-brand d-flex align-items-center justify-content-center brnd shadow" href="<?= base_url('operator'); ?>">
             <?php
             } ?>
+            <div>
+                <img src="<?= base_url('assets/img/logo-ub.png') ?>" style="width: 45px; height: 45px;">
 
-            <span class="sidebar-brand-text mx-3" style="color: #fff;">
+            </div>
+
+            <span class="sidebar-brand-text mx-3" style="color: #101010;">
                 <span class="text-ipi">IPI APPS</span>
             </span>
             <div class="topbar-divider d-none d-sm-block"></div>
@@ -18,7 +22,7 @@
 
 
             <!-- Divider -->
-
+            <hr class="sidebar-divider">
             <?php if ($title == "Dashboard") : ?>
                 <li class="nav-item active">
                 <?php else : ?>
@@ -42,25 +46,27 @@
                     <div class="sidebar-heading">
                         Administrator
                     </div>
+                    <!-- Tambah user -->
+                    <?php if ($title == "Manajemen User") : ?>
+                        <li class="nav-item active">
+                        <?php else : ?>
+                        <li class="nav-item">
+                        <?php endif; ?>
+                        <a class="nav-link pb-0" href="<?= base_url('admin/manajemenUser'); ?>">
+                            <i class="fas fa-fw fa-user-friends"></i>
+                            <span>Manajemen User</span>
+                        </a>
+                        </li>
+                    <?php
+                    } else { ?>
+                        <div class="sidebar-heading">
+                            Operator
+                        </div>
+                    <?php
+                    } ?>
 
-                <?php
-                } ?>
-
-                <!-- Menu -->
-                <!-- Input Data -->
-
-                <!-- Tambah user -->
-                <?php if ($title == "Manajemen User") : ?>
-                    <li class="nav-item active">
-                    <?php else : ?>
-                    <li class="nav-item">
-                    <?php endif; ?>
-                    <a class="nav-link pb-0" href="<?= base_url('admin/manajemenUser'); ?>">
-                        <i class="fas fa-fw fa-user-friends"></i>
-                        <span>Manajemen User</span>
-                    </a>
-                    </li>
-
+                    <!-- Menu -->
+                    <!-- Input Data -->
                     <?php if ($title == "Input Data") : ?>
                         <li class="nav-item active">
                         <?php else : ?>
@@ -170,20 +176,26 @@
                                         <div class="bg-white py-2 collapse-inner rounded">
                                             <span>
                                                 <a class="collapse-item" href="<?= base_url('admin/report/asli') ?>">Data Indikator Sosial<br>Ekonomi</a>
-
+                                                <a class="collapse-item" href="<?= base_url('admin/report/rescale') ?>">Data Indeks Sosial<br>Ekonomi</a>
                                             </span>
                                         </div>
                                         <!-- -- Updated -->
                                     </div>
                                     </li>
 
-
+                                    <!-- Panduan -->
+                                    <li class="nav-item">
+                                        <a class="nav-link pb-0" href="<?= base_url('assets/Panduan_IPI_APPS.pdf'); ?>">
+                                            <i class="fas fa-fw fa-file-alt"></i>
+                                            <span>Panduan</span>
+                                        </a>
+                                    </li>
 
                                     <!-- Divider -->
                                     <hr class="sidebar-divider mt-3 mb-0">
 
                                     <li class="nav-item">
-                                        <a class="nav-link logout" href="<?= base_url('auth/logout') ?>">
+                                        <a class="nav-link logout" href="#">
                                             <i class="fas fa-fw fa-power-off"></i>
                                             <span>logout</span>
                                         </a>

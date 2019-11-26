@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700,800,900&display=swap');
+
+.error-404 {
+    height: 100vh;
+    min-height: 500px;
+    background-image: url('../../img/image-404.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+.error-500{
+    height: 100vh;
+    min-height: 500px;
+    background-image: url('../../img/image-500.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+  .text-404{
+      font-size: 10rem;
+  }
+
+  .text-error{
+      margin-top: -10px;
+      font-weight: 700;
+      font-size: 2rem;
+  }
