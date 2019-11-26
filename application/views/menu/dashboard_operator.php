@@ -77,16 +77,16 @@
                                 <div class="card-body">
                                     <?php $subdimensi = $this->db->get_where('subdimensi', ['kode_d' => $this->session->userdata('status_user')])->result_array(); ?>
                                     <?php foreach ($subdimensi as $sd) : ?>
-                                        <div class="row">
-                                            <div class="col-xs-2">
-                                                <a href="#" id="subdimensi<?= $sd['kode_sd']; ?>" role="button" class="btn square-legend bg-cream"></a>
-                                            </div>
-                                            <div class="col-xs-6">
-                                                <small>
-                                                    <a href="<?= base_url('admin/subdimensi?sd=') . $sd['kode_sd']; ?>" class="text-sm text-decoration-none text-secondary ml-4"><?= $sd['nama_sub_dimensi'] ?></a>
-                                                </small>
-                                            </div>
+                                    <div class="row">
+                                        <div class="col-xs-2">
+                                            <a href="#" id="subdimensi<?= $sd['kode_sd']; ?>" role="button" class="btn square-legend bg-cream"></a>
                                         </div>
+                                        <div class="col-xs-6">
+                                            <small>
+                                                <a href="<?= base_url('admin/subdimensi?sd=') . $sd['kode_sd']; ?>" class="text-sm text-decoration-none text-secondary ml-4"><?= $sd['nama_sub_dimensi'] ?></a>
+                                            </small>
+                                        </div>
+                                    </div>
                                     <?php endforeach; ?>
                                 </div>
                             </div>

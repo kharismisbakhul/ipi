@@ -3,6 +3,67 @@ body {
 	font-family: 'Roboto', sans-serif;
 }
 
+.brnd {
+	background-color: #fff;
+}
+
+.text-ipi {
+	padding: 10px;
+	border-left: 1px solid #101010;
+}
+
+
+.sidebar {
+	background-color: #182C61;
+	border-color: #2980b9;
+
+}
+
+#progressTimer {
+	margin: 20px;
+	width: 95%;
+	height: 8px;
+	position: relative;
+}
+
+.carrot {
+	border-left: 0.25rem solid #e58e26 !important;
+}
+
+.midnight-blue {
+	border-left: 0.25rem solid #2c3e50 !important;
+}
+
+.no-border {
+	border: 0;
+}
+
+.card,
+.card-header:first-child {
+	border-radius: 0rem;
+}
+
+.square-legend {
+	width: 3rem;
+	height: 1rem;
+	border-radius: 0.2rem;
+}
+
+.line-legend {
+	background-color: red;
+	width: 3rem;
+	height: 0.3rem;
+	border-radius: 0.2rem;
+}
+
+.dash {
+	background-image: url('../../img/2.jpg');
+	background-attachment: fixed;
+	background-position: 0 -200px;
+	color: #eaeaea;
+	overflow: hidden;
+}
+
 .bg-orange2 {
 	background-color: #cd6133;
 }
@@ -78,6 +139,7 @@ table.table-borde>thead>tr>th {
 table.table-borde>tbody>tr>td {
 	border: 1px solid #101010;
 }
+
 
 /* animasi */
 .box {

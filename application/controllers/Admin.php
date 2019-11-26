@@ -47,7 +47,6 @@ class Admin extends CI_Controller
             $data['title2'] = 'Indeks Pembangunan Inklusif';
         } else {
             $data['title2'] = 'Indeks Pembangunan Inklusif';
-
             //Start - Tambahan Data buat load awal (Semua data)
             $data['ipi'] = $this->admin->getIPI();
             $data['dimensi'] = $this->admin->getDimensi();

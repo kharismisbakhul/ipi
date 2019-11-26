@@ -40,7 +40,7 @@
             <div class="card shadow  h-100">
                 <div class="card-header bg-midnight-blue bg text-white">
                     <div class="text-sm font-weight-bold text-capitalize text-center">
-                        Grafik : Re-scale <?= $title2; ?>
+                    Grafik : Re-scale <?= $title2; ?>
                     </div>
                 </div>
                 <div class="card-body">
